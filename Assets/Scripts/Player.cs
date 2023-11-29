@@ -8,11 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _SpeedPlayer = 6;
     [SerializeField] private float _jumpForce = 5;
 
-    private  Collider2D _collider;
-
     private  Rigidbody2D _rBody2D;
 
-   // private Animator _anim;
+   private Animator _anim;
     
     public bool _isGrounded;
 
@@ -22,7 +20,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         _rBody2D = gameObject.GetComponent<Rigidbody2D>();
-        // _anim = gameObject.GetComponent<Animator>();
+         _anim = gameObject.GetComponent<Animator>();
          
     }
 
@@ -33,35 +31,37 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && GroundSensor._isGrounded)
         {
-            Jump();
+            Jump(); 
         }
-        // _anim.SetBool("IsJumping",true);
+       //_anim.SetBool("IsJumping",true);
     }
 
-    void FixedMovment()
+    void FixedUpdate()
     {
          _rBody2D.velocity = new Vector2(_playerInputHorizontal * _SpeedPlayer, _rBody2D.velocity.y);
     }
 
      void PlayerMovement()
     {
-           if (_playerInputHorizontal < 0)
+        _playerInputHorizontal = Input.GetAxis("Horizontal");
+
+        if (_playerInputHorizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            // _anim.SetBool("IsRunning",true);
+            _anim.SetBool("IsRunning",true);
 
         }
 
         else if (_playerInputHorizontal > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            // _anim.SetBool("IsRunning",true);
+             _anim.SetBool("IsRunning",true);
 
         }
-        /*else 
+        else 
         {
             _anim.SetBool("IsRunning",false);
-        }*/
+        }
 
     }
 
