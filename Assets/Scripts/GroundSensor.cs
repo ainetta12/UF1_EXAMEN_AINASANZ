@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class GroundSensor : MonoBehaviour
 {
-    /*[SerializeField] private float _jumpForce = 5;
+
+    public bool _isGrounded;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        _jumpForce = true;
+        _isGrounded = true;
     }
     
     void OnTriggerExit2D(Collider2D other)
     {
-        _jumpForce = false;
+        _isGrounded= false;
     }
-
-    
+ 
     void OnTriggerStay2D(Collider2D other)
     {
-        _jumpForce = true;
-    }*/
+        _isGrounded = true;
+    }
 }
