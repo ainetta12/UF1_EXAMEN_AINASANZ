@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class GroundSensor : MonoBehaviour
 {
-    [SerializedFIeld] private float _jumpForce = 5
+    /*[SerializeField] private float _jumpForce = 5;
 
-    // Update is called once per frame
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        _jumpForce = true;
     }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        _jumpForce = false;
+    }
+
+    
+    void OnTriggerStay2D(Collider2D other)
+    {
+        _jumpForce = true;
+    }*/
 }
